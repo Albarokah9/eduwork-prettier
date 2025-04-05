@@ -1,0 +1,38 @@
+{
+  "name": "eduwork-prettier",
+  "version": "1.0.0",
+  "description": "prettier",
+  "main": "index.js",
+  "author": "albar",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^14.2.1",
+    "prettier": "^3.5.3"
+  },
+
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "prettier:check:all": "prettier --check .",
+    "prettier:fix:all": "prettier --write .",
+    "prettier:check:json": "prettier --check ./**/*.json",
+    "prettier:fix:json": "prettier --write ./**/*.json",
+    "prettier:check:js": "prettier --check ./**/*.js",
+    "prettier:fix:js": "prettier --write ./**/*.js",
+    "prettier:check:ts": "prettier --check ./**/*.ts",
+    "prettier:fix:ts": "prettier --write ./**/*.ts",
+    "prettier:check:html": "prettier --check ./**/*.html",
+    "prettier:fix:html": "prettier --write ./**/*.html",
+    "prettier:check:css": "prettier --check ./**/*.css",
+    "prettier:fix:css": "prettier --write ./**/*.css",
+    "prettier:check:md": "prettier --check ./**/*.md",
+    "prettier:fix:md": "prettier --write ./**/*.md",
+    "prettier:check:yaml": "prettier --check ./**/*.yaml",
+    "prettier:fix:yaml": "prettier --write ./**/*.yaml",
+    "prettier:check:scss": "prettier --check ./**/*.scss",
+    "prettier:fix:scss": "prettier --write ./**/*.scss"
+  }
+}
