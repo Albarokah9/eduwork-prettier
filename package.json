@@ -34,5 +34,9 @@
     "prettier:fix:yaml": "prettier --write ./**/*.yaml",
     "prettier:check:scss": "prettier --check ./**/*.scss",
     "prettier:fix:scss": "prettier --write ./**/*.scss"
+  },
+ "repository": "https://github.com/Albarokah9/eduwork-prettier.git",
+  "dependencies": {
+    "cypress": "^14.2.1"
   }
 }
