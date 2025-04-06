@@ -71,15 +71,22 @@ describe('Automation Login dengan kredensial invalid dan valid menggunakan fixtu
     })
 
     it('Memastikan sudah logout', () => {
-        
-        cy.fixture("dua").then((data) => {
-            const username = data.validUser.username
-            const password = data.validUser.password
+        // Menggunakan custom command untuk login dengan kredensial valid
+        // Menggunakan fixture untuk mendapatkan data kredensial valid
+        // cy.fixture("dua").then((data) => {
+        //     const username = data.validUser.username
+        //     const password = data.validUser.password
+        //     cy.login(username, password)
+        // })
+        cy.loginWithFixture('validUser')
+        // cy.fixture("dua").then((data) => {
+        //     const username = data.validUser.username
+        //     const password = data.validUser.password
 
-            // Mengisi form login dengan kredensial valid
-            cy.get('#user_login').type(username)
-            cy.get('#user_password').type(password)
-            cy.contains('Sign in').click()
+        //     // Mengisi form login dengan kredensial valid
+        //     cy.get('#user_login').type(username)
+        //     cy.get('#user_password').type(password)
+        //     cy.contains('Sign in').click()
 
             // Assertion: Memastikan login berhasil
             cy.url().should('not.include', 'login.html')
@@ -91,7 +98,7 @@ describe('Automation Login dengan kredensial invalid dan valid menggunakan fixtu
             // Assertion: Memastikan logout berhasil
             cy.url().should('include', 'index.html')
             cy.get('#signin_button').should('be.visible')
-        })
+        // })
         
     });
 
