@@ -23,37 +23,51 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('login',(username, password) => {
-    // cy.clearCookies()
-    // cy.clearLocalStorage()
+Cypress.Commands.add('login', (username, password) => {
+	// cy.clearCookies()
+	// cy.clearLocalStorage()
 
-    cy.get('#user_login').type(username);
-    cy.get('#user_password').type(password);
-    cy.contains('Sign in').click();
-
+	cy.get('#user_login').type(username)
+	cy.get('#user_password').type(password)
+	cy.contains('Sign in').click()
 })
 
-Cypress.Commands.add('loginWithFixture', (userType) => {
-    cy.fixture('dua').then((data) => {
-      const username = data[userType].username;
-      const password = data[userType].password;
-  
-      // Isi form login dan klik tombol login
-      cy.get('#user_login').type(username);
-      cy.get('#user_password').type(password);
-      cy.contains('Sign in').click();
-    });
+Cypress.Commands.add('login2', (username, password) => {
+	// cy.clearCookies()
+	// cy.clearLocalStorage()
 
-  });
+	cy.get('#user-name').type(username)
+	cy.get('#password').type(password)
+	cy.get('#login-button').click()
+})
+
+Cypress.Commands.add('loginWithFixture', userType => {
+	cy.fixture('dua').then(data => {
+		const username = data[userType].username
+		const password = data[userType].password
+
+		// Isi form login dan klik tombol login
+		cy.get('#user_login').type(username)
+		cy.get('#user_password').type(password)
+		cy.contains('Sign in').click()
+	})
+})
 
 Cypress.Commands.add('logout', () => {
-    cy.get('.bm-burger-button').click();
-    cy.get('#logout_sidebar_link').click();
-    cy.url().should('include', 'https://www.saucedemo.com/');
-    cy.get('.title').should('not.exist');
-    cy.get('.bm-cross-button').should('not.exist');
-    cy.get('.bm-menu-wrap').should('not.exist');
-    cy.get('.bm-menu').should('not.exist');
-});
-  
-  
+	cy.get('.bm-burger-button').click()
+	cy.get('#logout_sidebar_link').click()
+	cy.url().should('include', 'https://www.saucedemo.com/')
+	cy.get('.title').should('not.exist')
+})
+
+Cypress.Commands.add('loginWithFixture2', userType => {
+	cy.fixture('saucedemo').then(data => {
+		const username = data[userType].username
+		const password = data[userType].password
+
+		// Isi form login dan klik tombol login
+		cy.get('#user-name').type(username)
+		cy.get('#password').type(password)
+		cy.get('#login-button').click()
+	})
+})

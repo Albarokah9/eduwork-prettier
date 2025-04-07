@@ -13,6 +13,10 @@ describe('Logout', () => {
 			cy.get('#user-name').type(username)
 			cy.get('#password').type(password)
 			cy.contains('Login').click()
+
+			// Assertion: Memastikan berhasil login
+			cy.url().should('include', '/inventory.html')
+			cy.get('.title').should('contain', 'Products')
 		})
 	})
 
