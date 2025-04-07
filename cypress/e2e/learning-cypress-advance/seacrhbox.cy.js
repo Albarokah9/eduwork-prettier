@@ -3,7 +3,7 @@
 
 describe('Searcbox Test', () => {
    beforeEach(() => {
-      cy.visit('/index.html')
+      cy.visit('http://zero.webappsecurity.com/index.html')
    });
    
    it('Should type into searchbox and submit', () => {
