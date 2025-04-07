@@ -33,7 +33,15 @@
     "prettier:check:yaml": "prettier --check ./**/*.yaml",
     "prettier:fix:yaml": "prettier --write ./**/*.yaml",
     "prettier:check:scss": "prettier --check ./**/*.scss",
-    "prettier:fix:scss": "prettier --write ./**/*.scss"
+    "prettier:fix:scss": "prettier --write ./**/*.scss",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:edge": "cypress run --browser edge",
+    "cy:run:electron": "cypress run --browser electron",
+    "cy:open:chrome": "cypress open --browser chrome",
+    "cy:open:firefox": "cypress open --browser firefox",
+    "cy:open:edge": "cypress open --browser edge",
+    "cy:open:electron": "cypress open --browser electron"
   },
  "repository": "https://github.com/Albarokah9/eduwork-prettier.git",
   "dependencies": {
