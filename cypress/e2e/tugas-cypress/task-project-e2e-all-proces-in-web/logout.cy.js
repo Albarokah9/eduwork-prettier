@@ -32,6 +32,7 @@ describe('Logout', () => {
 		// // Assertion: Memastikan berhasil logout
 		// cy.url().should('include', 'https://www.saucedemo.com/')
 
+        // Menggunakan custom command untuk logout
 		cy.logout()
 	})
 })
