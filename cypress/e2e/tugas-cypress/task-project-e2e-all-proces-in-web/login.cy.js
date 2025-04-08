@@ -70,3 +70,11 @@ describe('Test login menggunakan kredensial invalid dan valid', () => {
 		cy.get('.shopping_cart_link').should('be.visible')
 	})
 })
+
+// Atribut	Format Cypress	Contoh
+// id=	      #idName	        cy.get('#user-name')
+// class=	  .className	    cy.get('.btn-primary')
+// type=	  [type="value"]	cy.get('[type="text"]')
+
+// Atribut lain	[atribut="value"]	cy.get('[data-test="login-button"]')
+// Gabungan	tagname#idName.className[type="value"]	cy.get('input#user-name[type="text"]')
