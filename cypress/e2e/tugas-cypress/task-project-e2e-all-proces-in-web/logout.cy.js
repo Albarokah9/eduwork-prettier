@@ -19,6 +19,7 @@ describe('Logout', () => {
 			// Assertion: Memastikan berhasil login
 			cy.url().should('include', '/inventory.html')
 			cy.get('.title').should('contain', 'Products')
+			cy.get('.shopping_cart_link').should('be.visible')
 		// })
 	})
 
@@ -33,6 +34,14 @@ describe('Logout', () => {
 		// cy.url().should('include', 'https://www.saucedemo.com/')
 
         // Menggunakan custom command untuk logout
+		// Klik pada menu burger (ikon tiga garis horizontal)
+		// cy.get('.bm-burger-button').click()
+		// // Klik pada opsi "Logout"
+		// cy.get('#logout_sidebar_link').click()
 		cy.logout()
+
+		// Assertion: Memastikan berhasil logout
+		cy.url().should('include', 'https://www.saucedemo.com/')
+		cy.get('.title').should('not.exist')
 	})
 })

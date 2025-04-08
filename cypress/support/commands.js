@@ -69,5 +69,7 @@ Cypress.Commands.add('loginWithFixture2', userType => {
 		cy.get('#user-name').type(username)
 		cy.get('#password').type(password)
 		cy.get('#login-button').click()
+
+		
 	})
 })

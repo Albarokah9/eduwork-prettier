@@ -41,17 +41,32 @@ describe('Test login menggunakan kredensial invalid dan valid', () => {
 	})
 
 	it('Login dengan kredensial valid menggunakan fixtures', () => {
-		cy.fixture('saucedemo').then(data => {
-			const username = data.validUser.username
-			const password = data.validUser.password
+		// cy.fixture('saucedemo').then(data => {
+		// 	const username = data.validUser.username
+		// 	const password = data.validUser.password
 
-			cy.get('#user-name').type(username)
-			cy.get('#password').type(password)
-			cy.get('#login-button').click()
+		// 	cy.get('#user-name').type(username)
+		// 	cy.get('#password').type(password)
+		// 	cy.get('#login-button').click()
 
-			// Assertion: Memastikan berhasil login
-			cy.url().should('include', '/inventory.html')
-			cy.get('.title').should('contain', 'Products')
-		})
+		// 	// Assertion: Memastikan berhasil login
+		// 	cy.url().should('include', '/inventory.html')
+		// 	cy.get('.title').should('contain', 'Products')
+		// })
+
+		// Menggunakan custom command untuk login dengan kredensial valid
+		// Menggunakan fixture untuk mendapatkan data kredensial valid
+		// Mengambil data dari fixture file saucedemo.json
+		// cy.fixture('saucedemo').then(data => {
+		// 	const username = data.validUser.username
+		// 	const password = data.validUser.password
+		// 	cy.login2(username, password)
+		// })
+		cy.loginWithFixture2('validUser')
+
+		// Assertion: Memastikan berhasil login
+		cy.url().should('include', '/inventory.html')
+		cy.get('.title').should('contain', 'Products')
+		cy.get('.shopping_cart_link').should('be.visible')
 	})
 })
