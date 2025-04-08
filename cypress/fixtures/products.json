@@ -1,0 +1,14 @@
+{
+	"product1": {
+		"name": "Sauce Labs Backpack",
+		"buttonSelector": "[data-test='add-to-cart-sauce-labs-backpack']"
+	},
+	"product2": {
+		"name": "Sauce Labs Bike Light",
+		"buttonSelector": "[data-test='add-to-cart-sauce-labs-bike-light']"
+	},
+	"product3": {
+		"name": "Sauce Labs Bolt T-Shirt",
+		"buttonSelector": "[data-test='add-to-cart-sauce-labs-bolt-t-shirt']"
+	}
+}

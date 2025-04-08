@@ -69,7 +69,20 @@ Cypress.Commands.add('loginWithFixture2', userType => {
 		cy.get('#user-name').type(username)
 		cy.get('#password').type(password)
 		cy.get('#login-button').click()
+	})
 
-		
+	Cypress.Commands.add('addProductsToCart', productKeys => {
+		cy.fixture('products').then(products => {
+			productKeys.forEach(productKey => {
+				const product = products[productKey]
+				// Klik tombol "Add to cart"
+				cy.get(product.buttonSelector).click()
+			})
+			// Pastikan jumlah item di keranjang sesuai dengan jumlah produk yang ditambahkan
+			cy.get('.shopping_cart_link').should(
+				'contain',
+				productKeys.length.toString()
+			)
+		})
 	})
 })
