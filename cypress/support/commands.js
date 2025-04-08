@@ -86,3 +86,38 @@ Cypress.Commands.add('loginWithFixture2', userType => {
 		})
 	})
 })
+Cypress.Commands.add('checkout', (firstName, lastName, postalCode) => {
+	cy.fixture('datapengiriman').then(data => {
+		const { firstName, lastName, postalCode } = data
+		// Klik ikon keranjang belanja
+		cy.get('.shopping_cart_link').click()
+		cy.url().should('include', '/cart.html')
+		cy.get('.title').should('contain', 'Your Cart')
+
+		// Klik tombol "CHECKOUT"
+		cy.get('.btn_action.checkout_button').click()
+		cy.url().should('include', '/checkout-step-one.html')
+		cy.get('.title').should('contain', 'Checkout: Your Information')
+
+		// Mengisi data pengiriman
+		cy.get('#first-name').type(firstName)
+		cy.get('#last-name').type(lastName)
+		cy.get('#postal-code').type(postalCode)
+		cy.get('.btn_primary.cart_button').click()
+
+		// Memastikan berada di halaman ringkasan pesanan
+		cy.url().should('include', '/checkout-step-two.html')
+		cy.get('.title').should('contain', 'Checkout: Overview')
+
+		// Klik tombol "FINISH"
+		cy.get('.btn_action.cart_button').click()
+
+		// Memastikan berada di halaman konfirmasi pesanan
+		cy.url().should('include', '/checkout-complete.html')
+		cy.get('h2').should('contain', 'Thank you for your order!')
+		cy.get('.complete-text').should(
+			'contain',
+			'Your order has been dispatched, and will arrive just as fast as the pony can get there!'
+		)
+	})
+})
