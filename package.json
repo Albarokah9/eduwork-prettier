@@ -40,10 +40,14 @@
 		"cy:open:chrome": "cypress open --browser chrome",
 		"cy:open:firefox": "cypress open --browser firefox",
 		"cy:open:edge": "cypress open --browser edge",
-		"cy:open:electron": "cypress open --browser electron"
+		"cy:open:electron": "cypress open --browser electron",
+		"test:api": "cypress run --spec 'cypress/e2e/api/**/*.cy.js'"
+		
 	},
 	"repository": "https://github.com/Albarokah9/eduwork-prettier.git",
 	"dependencies": {
+		"chai": "^5.2.0",
+		"chai-http": "^5.1.1",
 		"cypress": "^14.2.1"
 	}
 }
