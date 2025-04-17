@@ -17,7 +17,7 @@ module.exports = defineConfig({
 		env: {
 			userEmail: "eve.holt@reqres.in",
 			userPassword: "cityslicka",
-			apiUrl: 'https://reqres.in/api/login'
+			apiUrl: 'https://reqres.in'
 		},
 		setupNodeEvents(on, config) {
 			// Implementasi event di sini
