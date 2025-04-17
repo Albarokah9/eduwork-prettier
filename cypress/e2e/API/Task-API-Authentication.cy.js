@@ -9,7 +9,7 @@ describe('Login Test using API', () => {
     });
 
     it('Should have session cookies set', () => {
-        // Memastikan cookie sessionId, userId, userName ada
+        // Memastikan cookie session ada setelah login
         cy.getCookie('token').should('exist');
 
     });
